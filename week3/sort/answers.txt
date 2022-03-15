@@ -1,0 +1,11 @@
+sort1 uses: bubble
+
+How do you know?: On the large sorted data set, this sort had a very fast time. This indicates that under an ideal sort condition, sort1 performs very well, consistent with bubble sort's Omega(n)
+
+sort2 uses: merge
+
+How do you know?: On the large randomized data set this sort is significantly faster than the other two, indicating a better BigO, consisten with merge sort's O(n log n) vs the other two's O(n^2).
+
+sort3 uses: selection
+
+How do you know?: Process of elimination! Also, on all three large data sets, random, sorted, and reversed, this sort had relatively consistent slower performance. This is consistent with how selection sort is both O(n^2) and Omega(n^2), as opposed to bubble sort's Omega(n).
