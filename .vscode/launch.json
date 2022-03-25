@@ -9,6 +9,7 @@
       "type": "python",
       "request": "launch",
       "program": "${file}",
+      "args": ["week6/dna/databases/small.csv", "week6/dna/sequences/1.txt"],
       "console": "integratedTerminal",
       "justMyCode": true
     },
