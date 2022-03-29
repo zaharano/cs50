@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link href="styles.css" rel="stylesheet" />
+    <title>Trivia!</title>
+    <script>
+      // takes in dom refs and a correct bool and styles accordingly
+      function check(ele, q, r, correct) {
+        let color = correct ? 'green' : 'red';
+        ele.style.backgroundColor = color;
+        r.style.color = color;
+        r.innerHTML = correct ? 'Correct!' : 'Incorrect';
+        q.appendChild(r);
+      }
+
+      function triviaSetup() {
+        // question 1 dom refs
+        const buttons = document.querySelectorAll('.mchoice button');
+        const q1 = document.getElementById('q1');
+        const r1 = document.createElement('div');
+
+        for (const button of buttons) {
+          button.addEventListener('click', () => {
+            check(button, q1, r1, button.value == 'correct');
+          });
+        }
+
+        // gather question 2 dom refs
+        const textq = document.getElementById('textq');
+        const answer = document.getElementById('answer');
+        const q2 = document.getElementById('q2');
+        const r2 = document.createElement('div');
+
+        textq.addEventListener('submit', (e) => {
+          e.preventDefault();
+          check(
+            answer,
+            q2,
+            r2,
+            answer.value.toLowerCase() == 'beautiful places'
+          );
+        });
+      }
+      window.onload = triviaSetup;
+    </script>
+  </head>
+  <body>
+    <div class="header">
+      <h1>Trivia!</h1>
+    </div>
+
+    <div class="container">
+      <div class="section mchoice">
+        <h2>Part 1: Multiple Choice</h2>
+        <hr />
+        <h3 id="q1">What is the primary diet of the buttfor?</h3>
+        <button value="correct">What's a buttfor?</button>
+        <button value="wrong">Bats</button>
+        <button value="wrong">Rats</button>
+      </div>
+
+      <div class="section">
+        <h2>Part 2: Free Response</h2>
+        <hr />
+        <h3 id="q2">Where do trout live?</h3>
+        <form method="get" id="textq">
+          <input type="text" name="answer" id="answer" />
+          <input type="submit" value="Submit" id="textqsubmit" />
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
