@@ -1,0 +1,46 @@
+body {
+  background-color: black;
+  background-image: radial-gradient(rgba(0, 150, 0, 0.4), black 120%);
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  padding: 1.5em;
+  color: white;
+  font: 1.3rem Inconsolata, monospace;
+  text-shadow: 0 0 5px #c8c8c8;
+}
+
+body::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 3px,
+    transparent 5px,
+    transparent 3px
+  );
+  pointer-events: none;
+}
+
+body::after {
+  animation: bgpulse infinite 5000ms;
+}
+
+@keyframes bgpulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1) rotate(1deg);
+  }
+}
+
+body::after {
+  animation: bgpulse infinite 5000ms;
+}
